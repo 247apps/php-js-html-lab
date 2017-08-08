@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>autoSuggestUiWithoutMapHTML</title>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+        <script>
+        var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+    credentials: 'Your Bing Maps Key',
+    center: new Microsoft.Maps.Location(47.60357, -122.32945)
+});
+var center = map.getCenter();
+var infobox = new Microsoft.Maps.Infobox(center, { title: 'Map Center',
+    description: 'Seattle' });
+infobox.setMap(map);
+        </script>
+    </head>
+    <body>
+         <div id='printoutPanel'></div>
+        
+        <div id='myMap' style='width: 100vw; height: 100vh;'></div>
+        <script type='text/javascript'>
+            function loadMapScenario() {
+                var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+                    credentials: 'Your Bing Maps Key',
+                    center: new Microsoft.Maps.Location(47.60357, -122.32945)
+                });
+                var center = map.getCenter();
+                var infobox = new Microsoft.Maps.Infobox(center, { title: 'Map Center',
+                    description: 'Seattle' });
+                infobox.setMap(map);
+                
+            }
+        </script>
+        <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=loadMapScenario' async defer></script>
+    
+    </body>
+</html>

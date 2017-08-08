@@ -1,0 +1,6 @@
+type this url in browser to view 1004MC
+http://localhost:83/ViewerJS/#../test/javascript/viewerjs/1004mc.pdf
+
+type this url in browser to view xls sheet saved with OpenDocumentSpredsheet opendocument.ods
+http://localhost:83/ViewerJS/#../test/javascript/viewerjs/openSheet.ods
+http://localhost:83/ViewerJS/#../test/javascript/viewerjs/openWord.odt

@@ -1,0 +1,47 @@
+<!--https://www.bing.com/api/maps/sdkrelease/mapcontrol/isdk#geoJsonReadExternal+HTML -->
+<html>
+    <head>
+        <title>geoJsonReadExternalHTML</title>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+        <script>
+        /*
+var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+    credentials: 'Your Bing Maps Key',
+    zoom: 4
+});
+
+myMap = map;
+Microsoft.Maps.loadModule('Microsoft.Maps.GeoJson', function () {
+	Microsoft.Maps.GeoJson.readFromUrl('http://localhost:83/test/javascript/bing/test2.json', function (shapes) {
+//    Microsoft.Maps.GeoJson.readFromUrl('https://earthquake.usgs.gov/fdsnws/event/1/query?minmagnitude=3&format=geojson', function (shapes) {
+        map.entities.push(shapes);
+    }, 'callback');
+});
+*/
+
+        </script>
+    </head>
+    <body>
+        <div id='printoutPanel'></div>
+        
+        <div id='myMap' style='width: 100vw; height: 100vh;'></div>
+        <script type='text/javascript'>
+            function loadMapScenario() {
+                var myMap;
+                var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+                    credentials: 'Your Bing Maps Key',
+                    zoom: 4
+                });
+                myMap = map;
+                Microsoft.Maps.loadModule('Microsoft.Maps.GeoJson', function () {
+                    //BAD-Microsoft.Maps.GeoJson.readFromUrl('http://localhost:83/test/javascript/bing/test.php', function (shapes) {
+		Microsoft.Maps.GeoJson.readFromUrl('https://earthquake.usgs.gov/fdsnws/event/1/query?minmagnitude=3&format=geojson', function (shapes) {
+                        map.entities.push(shapes);
+                    }, 'callback');
+                });
+                
+            }
+        </script>
+        <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=loadMapScenario' async defer></script>
+    </body>
+</html>
