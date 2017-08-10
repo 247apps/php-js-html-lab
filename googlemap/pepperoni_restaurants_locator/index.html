@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+      <title>Pepperoni Restaurant Locator</title>
+      <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+    <script type="text/javascript" src="js/report_error.js"></script>
+    <script type="text/javascript">
+
+    </script>
+      <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+      <script type="text/javascript" src="js/jquery.loading_indicator.js"> </script>
+      <script type="text/javascript" src='js/functions.js'></script>
+
+<script type="text/javascript" src="js/anylinkmenu.js"></script>
+<script type="text/javascript" src="js/showHide.js"></script>
+
+<script type="text/javascript">anylinkmenu.init("menuanchorclass")</script>
+<div id="fb-root"></div>
+
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="shortcut icon" href="images/favicon.ico" />
+<style type="text/css">
+
+.invalid {
+            color: red;
+        }
+.laundry_plan .green {
+    color:#6D9E2C;
+    background: white !important;
+    border : none;
+	filter: none;
+}
+
+</style>
+   </head>
+   <body>
+        <div id="fb-root"></div>
+
+       <!-- End of facebook code -->
+      <div id="wrapper">
+      	<div id="header">
+
+          <div id="wrapper_back">
+<div style="position:relative; float: left; padding-top:13px; padding-bottom:13px;"><a href="http://pepperoni.com"><img src="images/logo.jpg" alt="" border="0"></a></div>
+
+<div style="clear: both;"></div>
+
+<br />
+
+
+                                    <script type="text/javascript">
+                    $(document).ready( function(){
+                    $("#login_logout").html("Logout");
+                    $("#login_logout").attr('href', "/logout");
+                });
+                </script>
+
+
+        </div>
+
+          <div style='padding:0px 10px 20px 0px;'>
+             <div style='padding:0px;'><script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.9&sensor=false"></script>
+<script src="js/StyledMarker.js" type="text/javascript"></script>
+<div style="float: left; display: block; padding-left: 5px; width: 630px;">
+<span class="bodyBig">
+<h1>Bay Area Locations</h1><br>
+You will find our restaurants are located across the Bay Area. We've been 25 years
+<span class="bodyReg">in business, hopefully we can serve you a great dinner with your loved ones.<br>
+<br>
+<div align="right">Click on pin for location details.</div>
+    <div id="map" style="border:1px solid #3698fb;width: 630px; height: 500px"><br><br><br><br><br>&nbsp;&nbsp;&nbsp;Loading Google Map...</div></span>
+<br><br>
+</div>
+
+<div style="float: right; width:320px;">
+    <div style="float: right; height: 158px; margin-right:3px;"></div>
+    <div style="float:right; width:280px;"><br>
+    <h2>Wedding Rental Locations:</h2>
+        <p style="font-size: 12px; color: #666; margin: 0px 0px 10px 0px;">Open 7 days a week</p>
+
+      <table id='locationTablePublic'>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+        <div style="float:right; width:280px;"><br><h2>Pepperoni Restaurant Locations:</h2>
+        <p style="font-size: 12px; color: #666; margin: 0px 0px 10px 0px;">Click on button for hours</p>
+        <table id='locationTable'>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+        </table></div></div>
+
+
+<script type="text/javascript">
+    var count = 1;
+	var latlng = new google.maps.LatLng(37.77982257056612, -122.40995832275394);
+
+    var myOptions = {
+      zoom: 13,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map"),myOptions);
+    var infowindow = new google.maps.InfoWindow();
+    function add_marker(lat,lon,locationID,address,name,count, info, color){
+            latlng = new google.maps.LatLng(lat, lon);
+            //bounds.extend(latlng);
+            color = '#' + color;
+
+            var styleIcon = new StyledIcon(StyledIconTypes.MARKER,{color:color, text:count});
+            var marker = new StyledMarker({styleIcon:styleIcon,position:latlng,map:map,content:count});
+
+
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.setContent(info);
+                infowindow.open(map,marker);
+
+                map.setZoom(16); //binh add this for zoom in onclick
+                map.setCenter(marker.getPosition()); //binh add this for zoom in onclick
+        });
+    };
+
+
+    var json = [
+    {"locationID":"270","address":"1425 Kansas Street","state":"CA","city":"San Francisco","lat":"37.751238","lon":"-122.401934","companyName":"Wedding Ceremony Building","info":"<table><tr><td valign=top><span class=bodyBold><u>Wedding Ceremony Building<\/u>\n\t\t  <br><br>1425 Kansas Street<\/span><span class=bodyReg><br>Register for 24 Hour access<\/span><br><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>Open 24 Hrs a Day, 365 Days<br> Register for 24\/7 Access Online<\/apan><\/td><td style=\"padding:5px;\"><img style=\"border:1px solid #ccc;margin:3px; padding:2px; background-color:#fff;\" src=\images\/location_270.jpg width=90 height=120><\/td><\/tr><\/table>","abbreviation":"k"},
+
+    {"locationID":"271","address":"121 Valencia St","state":"CA","city":"San Francisco","lat":"37.771079","lon":"-122.422282","companyName":"Wedding Ceremony Building","info":"<table><tr><td valign=top><span class=bodyBold><u>Wedding Ceremony Building<\/u>\n\t\t  <br><br>121 Valencia St<\/span><span class=bodyReg><br>Register for 24 Hour access<\/span><br><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>Open 24 Hrs a Day, 365 Days<br> Register for 24\/7 Access Online<\/apan><\/td><td style=\"padding:5px;\"><img style=\"border:1px solid #ccc;margin:3px; padding:2px; background-color:#fff;\" src=\images\/location_271.jpg width=90 height=120><\/td><\/tr><\/table>","abbreviation":"k"},
+    {"locationID":"340","address":"2200 Van Ness Ave","state":"CA","city":"San Francisco","lat":"37.794848","lon":"-122.423086","companyName":"Party Rentals","info":"<table><tr><td valign=top><span class=bodyBold><u>Party Rentals<\/u>\n\t\t  <br><br>2200 Van Ness Ave<\/span><\/td><td style=\"padding:5px;\"><img style=\"border:1px solid #ccc;margin:3px; padding:2px; background-color:#fff;\" src=\images\/location_340.jpg width=90 height=120><\/td><\/tr><\/table>","abbreviation":"k"},
+    {"locationID":"350","address":"426 Haight St","state":"CA","city":"San Francisco","lat":"37.771994","lon":"-122.431427","companyName":"Kitchen Supply Rentals","info":"<table><tr><td valign=top><span class=bodyBold><u>Kitchen Supply Rentals<\/u>\n\t\t  <br><br>426 Haight St<\/span><span class=bodyReg><span class=bodyBold>Hours: <\/span><span class=bodyReg>Open 24 Hrs a Day, 365 Days<\/apan><\/td><td style=\"padding:5px;\"><img style=\"border:1px solid #ccc;margin:3px; padding:2px; background-color:#fff;\" src=\images\/location_350.jpg width=90 height=120><\/td><\/tr><\/table>","abbreviation":"k"},
+    {"locationID":"357","address":"781 Filbert St","state":"CA","city":"San Francisco","lat":"37.80090470951758","lon":"-122.41252070800397","companyName":"Kitchen Supply Rentals","info":"<table><tr><td valign=top><span class=bodyBold><u>Kitchen Supply Rentals<\/u>\n\t\t  <br><br>781 Filbert St<\/span><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>Open 24 Hrs a Day, 365 Days<\/apan><\/td><td style=\"padding:5px;\"><img style=\"border:1px solid #ccc;margin:3px; padding:2px; background-color:#fff;\" src=\images\/location_357.jpg width=120 height=160><\/td><\/tr><\/table>","abbreviation":"k"},
+
+
+    {"locationID":"173","address":"1045 Mission St","state":"CA","city":"San Francisco","lat":"37.77982257056612","lon":"-122.40995832275394","companyName":"Pepperoni Location","info":"<table><tr><td valign=top><span class=bodyBold><u>Pepperoni Location<\/u>\n\t\t  <br><br>1045 Mission St<\/span><span class=bodyReg><br>Restaurant is on 2nd Floor Lounge Area<\/span><br><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>24 hours a day, 7 days a week. Check in with Leasing or <br> Front Desk Security Team for 24\/7 Acces<\/apan><\/td><\/tr><\/table>","abbreviation":"lib"},
+    {"locationID":"186","address":"1 California St","state":"CA","city":"San Francisco","lat":"37.793316807932335","lon":"-122.39709010317995","companyName":"Pepperoni in Nob Hill","info":"<table><tr><td valign=top><span class=bodyBold><u>Pepperoni in Nob Hill<\/u>\n\t\t  <br><br>1 California St<\/span><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>6am - 7pm Mon-Fri. Access garage lobby via the last elevator<\/apan><\/td><\/tr><\/table>","abbreviation":"lib"},
+    {"locationID":"187","address":"235 Montgomery St","state":"CA","city":"San Francisco","lat":"37.79136402361731","lon":"-122.40267630555724","companyName":"Pepperoni Downtown","info":"<table><tr><td valign=top><span class=bodyBold><u>Pepperoni Downtown<\/u>\n\t\t  <br><br>235 Montgomery St<\/span><br><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>5am-8pm Daily<\/apan><\/td><\/tr><\/table>","abbreviation":"lib"},
+    {"locationID":"253","address":"1410 Steiner \/ 1475 Fillmore","state":"CA","city":"San Francisco","lat":"37.78274565787573","lon":"-122.43357870552256","companyName":"Pepperoni of Fillmore neighborhood","info":"<table><tr><td valign=top><span class=bodyBold><u>Pepperoni of Fillmore neighborhood<\/u>\n\t\t  <br><br>1410 Steiner \/ 1475 Fillmore<\/span><span class=bodyReg><br>Located at Fillmore Center, to left of Club One Main Entrance.<\/span><br><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>Open 7 Days a Week, 24 Hours a Day<\/apan><\/td><\/tr><\/table>","abbreviation":"lib"},
+    {"locationID":"296","address":"555 Market St","state":"CA","city":"San Francisco","lat":"37.790294051934495","lon":"-122.39991499140166","companyName":"Pepperoni by Market","info":"<table><tr><td valign=top><span class=bodyBold><u>Pepperoni by Market<\/u>\n\t\t  <br><br>555 Market St<\/span><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>8am - 6pm Mon-Fri<\/apan><\/td><\/tr><\/table>","abbreviation":"lib"},
+    {"locationID":"327","address":"555 California St","state":"CA","city":"San Francisco","lat":"37.79206187065844","lon":"-122.40399346875188","companyName":"Pepperoni","info":"<table><tr><td valign=top><span class=bodyBold><u>Pepperoni<\/u>\n\t\t <br><br>555 California St<\/span><span class=bodyReg><br>From Concourse Level, take Garage Elevator to level B22 or B23.<\/span><br><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>5am - 12midnight Everyday Garage Hours<\/apan><\/td><\/tr><\/table>","abbreviation":"lib"},
+    {"locationID":"332","address":"2423 Chestnut St","state":"CA","city":"San Francisco","lat":"37.799899484783346","lon":"-122.44319685706046","companyName":"Pepperoni NorthBeach","info":"<table><tr><td valign=top><span class=bodyBold><u>Pepperoni NorthBeach<\/u>\n\t\t  <br><br>2423 Chestnut St<\/span><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>6 AM - 12Midnight Everyday<\/apan><\/td><td style=\"padding:5px;\"><img style=\"border:1px solid #ccc;margin:3px; padding:2px; background-color:#fff;\" src=images\/location_332.jpg width=90 height=120><\/td><\/tr><\/table>","abbreviation":"lib"},
+
+    {"locationID":"341","address":"250 Clay St","state":"CA","city":"San Francisco","lat":"37.7954209935464","lon":"-122.39836525396731","companyName":"Pepperoni East","info":"<table><tr><td valign=top><span class=bodyBold><u>Pepperoni East<\/u>\n\t\t  <br><br>250 Clay St (East Garage)<\/span><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>4am-10pm Mon-Fri, 7am-10pm Sat, 9am-10pm Sun<\/apan><\/td><td style=\"padding:5px;\"><img style=\"border:1px solid #ccc;margin:3px; padding:2px; background-color:#fff;\" src=images\/location_341.jpg width=90 height=120><\/td><\/tr><\/table>","abbreviation":"lib"},
+
+    {"locationID":"349","address":"50 California St","state":"CA","city":"San Francisco","lat":"37.794302011825714","lon":"-122.39757745040129","companyName":"Pepperoni California","info":"<table><tr><td valign=top><span class=bodyBold><u>Pepperoni California<\/u>\n\t\t  <br><br>50 California St<\/span><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>6am - 7pm Mon-Fri<\/apan><\/td><td style=\"padding:5px;\"><img style=\"border:1px solid #ccc;margin:3px; padding:2px; background-color:#fff;\" src=images\/location_349.jpg width=90 height=67><\/td><\/tr><\/table>","abbreviation":"lib"},
+    {"locationID":"404","address":"101 2nd St.","state":"CA","city":"San Francisco","lat":"37.78773759993284","lon":"-122.39915092261504","companyName":"Pepperoni Downtown","info":"<table><tr><td valign=top><span class=bodyBold><u>Pepperoni Downtown<\/u>\n\t\t  <br><br>101 2nd St<\/span><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>7am - 7pm Mon-Fri<\/apan><\/td><\/tr><\/table>","abbreviation":"lib"},
+    {"locationID":"433","address":"475 Sansome St (Garage Valet)","state":"CA","city":"San Francisco","lat":"37.794810660927766","lon":"-122.40173433135226","companyName":"475 Sansome Office Bldg","info":"<table><tr><td valign=top><span class=bodyBold><u>475 Sansome Office Bldg<\/u>\n\t\t  <br><br>475 Sansome St (Garage Valet)<\/span><span class=bodyReg><br>In Garage Next to Valet Station<\/span><br><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>5:30am - 8pm Mon-Fri<\/apan><\/td><td style=\"padding:5px;\"><img style=\"border:1px solid #ccc;margin:3px; padding:2px; background-color:#fff;\" src=images\/location_433.jpg width=120 height=90><\/td><\/tr><\/table>","abbreviation":"lib"},
+
+    {"locationID":"804","address":"140 Brannan St","state":"CA","city":"SF","lat":"37.78485618540548","lon":"-122.38863965826647","companyName":"Party Supply Rentals","info":"<table><tr><td valign=top><span class=bodyBold><u>Party Supply Rentals<\/u>\n\t\t  <br><br>140 Brannan St<\/span><span class=bodyReg><br><\/span><br><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>Open 24 Hrs a Day, 365 Days<br> Register for 24\/7 Access Online<\/apan><\/td><\/tr><\/table>","abbreviation":"k"},
+
+    {"locationID":"459","address":"3210 Folsom St","state":"CA","city":"San Francisco","lat":"37.746932301238324","lon":"-122.41372778591386","companyName":"Pepperoni","info":"<table><tr><td valign=top><span class=bodyBold><u>Pepperoni<\/u>\n\t\t  <br><br>3210 Folsom St<\/span><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>Everyday 7:30 AM \u2013 10:00 PM<\/apan><\/td><td style=\"padding:5px;\"><img style=\"border:1px solid #ccc;margin:3px; padding:2px; background-color:#fff;\" src=images\/location_459.jpg width=67 height=90><\/td><\/tr><\/table>","abbreviation":"lib"},
+
+    {"locationID":"471","address":"1675 Owens","state":"CA","city":"San Francisco","lat":"37.76855050052664","lon":"-122.39276999364012","companyName":"Pepperoni Restaurant","info":"<table><tr><td valign=top><span class=bodyBold><u>Pepperoni Restaurant<\/u>\n\t\t  <br><br>1675 Owens (Bakar Gym Elevators)<\/span><br><span class=bodyBold>Hours: <\/span><span class=bodyReg>Open 24 Hours \/ 7 Days a Week<\/apan><\/td><\/tr><\/table>","abbreviation":"lib"},
+
+    ];
+
+    $.each(json, function(i, item){
+        var lat = item.lat;
+        var lon = item.lon;
+        var color = item.abbreviation == 'k' ? 'ff6600' : '33ff33';
+        var target = item.abbreviation == 'k' ? '#locationTablePublic' : '#locationTable';
+
+        add_marker(lat,lon,item.locationID,item.address, 'active', count.toString(), item.info, color);
+        var link = '';
+        /*
+        if(item.locationID==483){
+            link = "<a href='/'>";
+         } else if(item.locationID==341){
+         	link = '<a href="/main/clay" target="_blank">';
+         } else if(item.locationID==186){
+             link = '<a href="main/onecalifornia" target="_blank">';
+         } else {
+             link = '<a href="https://maps.google.com/maps?q='+item.address+' '+item.city+', '+item.state+'" target="_blank">';
+         }
+         */
+
+         link = '<a href="https://maps.google.com/maps?q='+item.address+' '+item.city+', '+item.state+'" target="_blank">';
+
+        var city = '';
+         if(item.city!='San Francisco'){
+             city = ", "+item.city;
+         }
+          $(target).append("<tr><td><img src='http://thydzik.com/thydzikGoogleMap/markerlink.php?text="+count+"&color=" + color + "' /></td><td class='bodyReg'>"+link+""+item.companyName+"<br>"+item.address+""+city+"</a></td></tr>");
+          count = count+1;
+
+    });
+
+
+
+</script></div>
+             <br style='clear:both'>
+          </div>
+
+         
+         
+         <!--<div id="footer" style='clear:both'>
+            <div style="clear:both"></div>
+<div style="float:none; background-image: url(/images/footer_border.jpg); height: 20px; width: 970px;"></div>
+<div style="float:none; width: 970px; height: 300px; background-color: #99cc66;">
+		<div style="float:left; margin-left:30px; padding-top: 30px; width:300px; text-align: left;">
+			<div class="homeWhiteMed" style="padding-bottom:15px;">Services</div>
+			<div style="float: left;" class="homeWhiteSmall">
+				<a href="#" class="whiteLink">Breakfast</a><br>
+				<a href="#" class="whiteLink">Dinner</a><br>
+				<a href="#" class="whiteLink">Wedding Reservations</a><br>
+				<a href="#" class="whiteLink">To go</a><br>
+				<a href="#" class="whiteLink">Party</a></div>
+	  <div style="float: left; padding-left:30px;" class="homeWhiteSmall">
+<a href="#" class="whiteLink">Bay Area Locations</a><br>
+				<a href="#" class="whiteLink">Xpress Reservation</a><br>
+		  <a href="#" class="whiteLink">Renting location</a><br>
+				<a href="#" class="whiteLink">Home Delivery</a>			</div>
+	  </div>
+		<div style="float:left; background-image: url(/images/hr_vert.gif); background-repeat: repeat-y; height: 270px; width: 5px;"></div>
+
+
+
+
+		<div style="float:left; margin-left:30px; padding-top: 30px; margin-right: 30px; width:250px; text-align: left;">
+
+<div class="homeWhiteMed" style="padding-bottom:15px;">Contact</div>
+            <div style="float: left;" class="homeWhiteSmall">
+                187 Leigh Ave.<br>
+        San Mateo, CA 95208<br>
+                Ph. 415.222.8780<br>
+                Fax 415.222.8781<br>
+                Email: <a href="mailto:support@pepperoni.com" style="color: white; text-decoration: none;">support@pepperoni.com</a><br>
+              <br>
+            </div>
+
+		</div>
+
+
+		<div style="float:left; background-image: url(/images/hr_vert.gif); background-repeat: repeat-y; height: 270px; width: 5px;"></div>
+		<div style="float:right; margin-right:30px; padding-top: 30px; width:250px; text-align: left;">
+
+            <div class="homeWhiteMed" style="padding-bottom:15px;">Testimonial</div>
+            <div style="float: left;" class="homeWhiteSmall">"Dinning at Pepperoni was a pretty good time. A variety of tasty   Italian dishes that you will not find in most upscale restaurants. GREAT   FOOD AND SERVICE!!! Make this place the best in the Bay Area."<br>
+- Adam Anderson<br>
+<br><a href="#" class="greenLink">read more testimonials</a>
+</div>
+
+
+		</div>
+		<div style="clear: right;"></div>
+
+
+		<div align="right" class="homeWhiteSmall" style="float:right; text-align: right; font-size: 10px; padding-top: 20px; padding-right:20px;">2012 Pepperoni Foods</div>
+
+	</div>         </div>
+	-->
+	
+	
+
+      </div>
+   </body>
+
+</html>
+
