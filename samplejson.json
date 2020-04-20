@@ -1,0 +1,17 @@
+[{
+	"address": "835 Blossom Hill Rd, San Jose, CA",
+	"address_short": "835 Blossom Hill Rd",
+	"city": "San Jose",
+	"date": "11\/14",
+	"fromto": "9AM-4PM",
+	"distance": 100,
+	"duration": "15 mins"
+}, {
+	"address": "294 Sun Glory Ln # B, San Jose, CA 95124",
+	"address_short": "294 Sun Glory Ln # B",
+	"city": "San Jose",
+	"date": "11\/14",
+	"fromto": "9AM-2PM",
+	"distance": 130,
+	"duration": "25 mins"
+}]
